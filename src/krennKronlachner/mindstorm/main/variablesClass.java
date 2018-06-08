@@ -5,6 +5,8 @@
  */
 package krennKronlachner.mindstorm.main;
 
+import ch.aplu.ev3.SensorPort;
+
 /**
  *
  * @author Kroni
@@ -17,4 +19,5 @@ public class variablesClass {
     public static boolean stop = false;
     public static boolean driveBackwards = false; 
     
+    public final static SensorPort ULTRAPORT = SensorPort.S4;
 }
