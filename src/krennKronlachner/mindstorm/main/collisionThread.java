@@ -5,15 +5,38 @@
  */
 package krennKronlachner.mindstorm.main;
 
+
+import ch.aplu.ev3.SensorPort;
+import lejos.hardware.ev3.EV3;
+import lejos.hardware.lcd.LCD;
+import lejos.hardware.port.Port;
+import lejos.hardware.sensor.EV3UltrasonicSensor;
+import lejos.robotics.SampleProvider;
+import lejos.utility.Delay;
+
 /**
  *
- * @author Kroni
+ * @author Paul 
  */
 public class collisionThread implements Runnable{
-
+    
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       EV3UltrasonicSensor sensor = new EV3UltrasonicSensor((Port) SensorPort.S4);
+       
+        SampleProvider distanceProvider = sensor.getMode("Distance");
+        
+        while(true){
+            
+            float[] test = new float[distanceProvider.sampleSize()];
+            distanceProvider.fetchSample(test, 0);
+            
+            LCD.drawString("Distanz=  " + (test[0]*100), 0, 0);
+            
+            Delay.msDelay(500);
+        }
+       
+       
     }
     
 }
