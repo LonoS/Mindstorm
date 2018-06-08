@@ -10,6 +10,7 @@ package krennKronlachner.mindstorm.main;
  * @author Kroni
  */
 public class variablesClass {
+    
     public static boolean driveForward = true;
     public static boolean driveLeft = false;
     public static boolean driveRight = false;
